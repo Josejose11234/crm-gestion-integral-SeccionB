@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('inrteraction', function (Blueprint $table) {
+       Schema::create('interactions', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('client_id');
+            $table->string('tipo_interaccion', 50);
+            $table->text('observaciones')->nullable();
+            $table->date('fecha_seguimiento');
             $table->timestamps();
         });
     }
